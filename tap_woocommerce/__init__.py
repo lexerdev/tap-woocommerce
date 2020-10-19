@@ -2,19 +2,14 @@
 import itertools
 import os
 import sys
-import time
-import re
 import json
 import attr
 import urllib
 import requests
-import backoff
 from requests.auth import HTTPBasicAuth
 import singer
 import singer.metrics as metrics
 from singer import utils
-import datetime
-import dateutil
 from dateutil import parser
 
 
