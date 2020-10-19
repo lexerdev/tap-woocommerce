@@ -12,6 +12,7 @@ import singer.metrics as metrics
 from singer import utils
 from dateutil import parser
 
+import woocommerce
 
 REQUIRED_CONFIG_KEYS = ["url", "consumer_key", "consumer_secret", "start_date"]
 LOGGER = singer.get_logger()
@@ -22,19 +23,6 @@ CONFIG = {
     "consumer_secret": None,
     "start_date":None
 }
-
-ENDPOINTS = {
-    "orders":"wp-json/wc/v2/orders?after={0}&orderby=date&order=asc&per_page=100&page={1}"
-}
-
-def get_endpoint(endpoint, kwargs):
-    '''Get the full url for the endpoint'''
-    if endpoint not in ENDPOINTS:
-        raise ValueError("Invalid endpoint {}".format(endpoint))
-    
-    after = urllib.parse.quote(kwargs[0])
-    page = kwargs[1]
-    return CONFIG["url"]+ENDPOINTS[endpoint].format(after,page)
 
 def get_start(STATE, tap_stream_id, bookmark_key):
     current_bookmark = singer.get_bookmark(STATE, tap_stream_id, bookmark_key)
@@ -113,11 +101,11 @@ def giveup(exc):
         and 400 <= exc.response.status_code < 500 \
         and exc.response.status_code != 429
 
-@utils.backoff((backoff.expo,requests.exceptions.RequestException), giveup)
 @utils.ratelimit(20, 1)
-def gen_request(stream_id, url):
-    with metrics.http_request_timer(stream_id) as timer:
-        resp = requests.get(url, auth=HTTPBasicAuth(CONFIG["consumer_key"], CONFIG["consumer_secret"]))
+def gen_request(client, endpoint, params):
+    with metrics.http_request_timer(endpoint) as timer:
+        LOGGER.info(f'Request for endpoint {endpoint}: {params}')
+        resp = client.get(endpoint, params=params)
         timer.tags[metrics.Tag.http_status_code] = resp.status_code
         resp.raise_for_status()
         return resp.json()
@@ -127,15 +115,21 @@ def sync_orders(STATE, catalog):
     schema = load_schema("orders")
     singer.write_schema("orders", schema, ["order_id"])
 
+    client = woocommerce.API(
+        url=CONFIG['url'],
+        consumer_key=CONFIG['consumer_key'],
+        consumer_secret=CONFIG['consumer_secret'],
+        version="wc/v3"
+    )
+
     start = get_start(STATE, "orders", "last_update")
     LOGGER.info("Only syncing orders updated since " + start)
     last_update = start
     page_number = 1
     with metrics.record_counter("orders") as counter:
         while True:
-            endpoint = get_endpoint("orders", [start, page_number])
-            LOGGER.info("GET %s", endpoint)
-            orders = gen_request("orders",endpoint)
+            LOGGER.info("GET %s", "orders")
+            orders = gen_request(client, "orders", {"after": start, "page": page_number})
             for order in orders:
                 counter.increment()
                 order = filter_order(order)
