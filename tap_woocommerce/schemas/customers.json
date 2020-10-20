@@ -1,0 +1,194 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "date_created": {
+      "type": "string"
+    },
+    "date_created_gmt": {
+      "type": "string"
+    },
+    "date_modified": {
+      "type": "string"
+    },
+    "date_modified_gmt": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "billing": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "address_1": {
+          "type": "string"
+        },
+        "address_2": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "postcode": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address_1",
+        "address_2",
+        "city",
+        "company",
+        "country",
+        "email",
+        "first_name",
+        "last_name",
+        "phone",
+        "postcode",
+        "state"
+      ]
+    },
+    "shipping": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "address_1": {
+          "type": "string"
+        },
+        "address_2": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "postcode": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address_1",
+        "address_2",
+        "city",
+        "company",
+        "country",
+        "first_name",
+        "last_name",
+        "postcode",
+        "state"
+      ]
+    },
+    "is_paying_customer": {
+      "type": "boolean"
+    },
+    "avatar_url": {
+      "type": "string"
+    },
+    "meta_data": {
+      "type": "array"
+    },
+    "_links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "href": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "href"
+            ]
+          }
+        },
+        "collection": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "href": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "href"
+            ]
+          }
+        }
+      },
+      "required": [
+        "collection",
+        "self"
+      ]
+    }
+  },
+  "required": [
+    "_links",
+    "avatar_url",
+    "billing",
+    "date_created",
+    "date_created_gmt",
+    "date_modified",
+    "date_modified_gmt",
+    "email",
+    "first_name",
+    "id",
+    "is_paying_customer",
+    "last_name",
+    "meta_data",
+    "role",
+    "shipping",
+    "username"
+  ]
+}

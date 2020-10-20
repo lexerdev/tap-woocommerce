@@ -111,9 +111,9 @@ def gen_request(client, endpoint, params):
         return resp.json()
 
 
-def sync_orders(STATE, catalog):
-    schema = load_schema("orders")
-    singer.write_schema("orders", schema, ["order_id"])
+def sync(STATE, endpoint, catalog):
+    schema = load_schema(endpoint)
+    singer.write_schema(endpoint, schema, ["order_id"])
 
     client = woocommerce.API(
         url=CONFIG['url'],
@@ -122,24 +122,23 @@ def sync_orders(STATE, catalog):
         version="wc/v3"
     )
 
-    start = get_start(STATE, "orders", "last_update")
-    LOGGER.info("Only syncing orders updated since " + start)
+    start = get_start(STATE, endpoint, "last_update")
+    LOGGER.info("Only syncing objects updated since " + start)
     last_update = start
     page_number = 1
-    with metrics.record_counter("orders") as counter:
+    with metrics.record_counter(endpoint) as counter:
         while True:
-            LOGGER.info("GET %s", "orders")
-            orders = gen_request(client, "orders", {"after": start, "page": page_number})
-            for order in orders:
+            LOGGER.info("GET %s", endpoint)
+            results = gen_request(client, endpoint, {}) #, {"after": start, "page": page_number})
+            for obj in results:
                 counter.increment()
-                order = filter_order(order)
-                if("date_created" in order) and (parser.parse(order["date_created"]) > parser.parse(last_update)):
-                    last_update = order["date_created"]
-                singer.write_record("orders", order)
-            if len(orders) < 100:
+                if("date_created" in obj) and (parser.parse(obj["date_created"]) > parser.parse(last_update)):
+                    last_update = obj["date_created"]
+                singer.write_record(endpoint, obj)
+            if len(results) < 100:
                 break
             else:
-                page_number +=1
+                page_number += 1
     STATE = singer.write_bookmark(STATE, 'orders', 'last_update', last_update) 
     singer.write_state(STATE)
     LOGGER.info("Completed Orders Sync")
@@ -151,7 +150,9 @@ class Stream(object):
     sync = attr.ib()
 
 STREAMS = [
-    Stream("orders", sync_orders)
+    Stream("orders", sync),
+    Stream("customers", sync),
+    Stream("products", sync),
 ]
 
 def get_streams_to_sync(streams, state):
@@ -182,6 +183,7 @@ def get_selected_streams(remaining_streams, annotated_schema):
 def do_sync(STATE, catalogs):
     '''Sync the streams that were selected'''
     remaining_streams = get_streams_to_sync(STREAMS, STATE)
+    LOGGER.info(f'Streams to sync: {STREAMS}')
     selected_streams = get_selected_streams(remaining_streams, catalogs)
     if len(selected_streams) < 1:
         LOGGER.info("No Streams selected, please check that you have a schema selected in your catalog")
@@ -196,7 +198,7 @@ def do_sync(STATE, catalogs):
 
         try:
             catalog = [cat for cat in catalogs.streams if cat.stream == stream.tap_stream_id][0]
-            STATE = stream.sync(STATE, catalog)
+            STATE = stream.sync(STATE, stream.tap_stream_id, catalog)
         except Exception as e:
             LOGGER.critical(e)
             raise e

@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "date_created": {
+      "type": "string"
+    },
+    "date_created_gmt": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "refunded_by": {
+      "type": "integer"
+    },
+    "refunded_payment": {
+      "type": "boolean"
+    },
+    "meta_data": {
+      "type": "array"
+    },
+    "line_items": {
+      "type": "array"
+    },
+    "_links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "href": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "href"
+            ]
+          }
+        },
+        "collection": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "href": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "href"
+            ]
+          }
+        },
+        "up": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "href": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "href"
+            ]
+          }
+        }
+      },
+      "required": [
+        "collection",
+        "self",
+        "up"
+      ]
+    }
+  },
+  "required": [
+    "_links",
+    "amount",
+    "date_created",
+    "date_created_gmt",
+    "id",
+    "line_items",
+    "meta_data",
+    "reason",
+    "refunded_by",
+    "refunded_payment"
+  ]
+}

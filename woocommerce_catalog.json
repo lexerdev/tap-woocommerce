@@ -1,0 +1,2126 @@
+{
+    "streams": [
+        {
+            "selected": true,
+            "stream": "orders",
+            "tap_stream_id": "orders",
+            "schema": {
+                "$schema": "http://json-schema.org/schema#",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "inclusion": "automatic"
+                    },
+                    "parent_id": {
+                        "type": "integer",
+                        "inclusion": "automatic"
+                    },
+                    "number": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "order_key": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "created_via": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "version": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "status": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "currency": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_created": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_created_gmt": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_modified": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_modified_gmt": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "discount_total": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "discount_tax": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "shipping_total": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "shipping_tax": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "cart_tax": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "total": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "total_tax": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "prices_include_tax": {
+                        "type": "boolean",
+                        "inclusion": "automatic"
+                    },
+                    "customer_id": {
+                        "type": "integer",
+                        "inclusion": "automatic"
+                    },
+                    "customer_ip_address": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "customer_user_agent": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "customer_note": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "billing": {
+                        "type": "object",
+                        "properties": {
+                            "first_name": {
+                                "type": "string"
+                            },
+                            "last_name": {
+                                "type": "string"
+                            },
+                            "company": {
+                                "type": "string"
+                            },
+                            "address_1": {
+                                "type": "string"
+                            },
+                            "address_2": {
+                                "type": "string"
+                            },
+                            "city": {
+                                "type": "string"
+                            },
+                            "state": {
+                                "type": "string"
+                            },
+                            "postcode": {
+                                "type": "string"
+                            },
+                            "country": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            },
+                            "phone": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "address_1",
+                            "address_2",
+                            "city",
+                            "company",
+                            "country",
+                            "email",
+                            "first_name",
+                            "last_name",
+                            "phone",
+                            "postcode",
+                            "state"
+                        ],
+                        "inclusion": "automatic"
+                    },
+                    "shipping": {
+                        "type": "object",
+                        "properties": {
+                            "first_name": {
+                                "type": "string"
+                            },
+                            "last_name": {
+                                "type": "string"
+                            },
+                            "company": {
+                                "type": "string"
+                            },
+                            "address_1": {
+                                "type": "string"
+                            },
+                            "address_2": {
+                                "type": "string"
+                            },
+                            "city": {
+                                "type": "string"
+                            },
+                            "state": {
+                                "type": "string"
+                            },
+                            "postcode": {
+                                "type": "string"
+                            },
+                            "country": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "address_1",
+                            "address_2",
+                            "city",
+                            "company",
+                            "country",
+                            "first_name",
+                            "last_name",
+                            "postcode",
+                            "state"
+                        ],
+                        "inclusion": "automatic"
+                    },
+                    "payment_method": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "payment_method_title": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "transaction_id": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_paid": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_paid_gmt": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_completed": {
+                        "type": "null",
+                        "inclusion": "automatic"
+                    },
+                    "date_completed_gmt": {
+                        "type": "null",
+                        "inclusion": "automatic"
+                    },
+                    "cart_hash": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "meta_data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "key": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "key",
+                                "value"
+                            ]
+                        },
+                        "inclusion": "automatic"
+                    },
+                    "line_items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "product_id": {
+                                    "type": "integer"
+                                },
+                                "variation_id": {
+                                    "type": "integer"
+                                },
+                                "quantity": {
+                                    "type": "integer"
+                                },
+                                "tax_class": {
+                                    "type": "string"
+                                },
+                                "subtotal": {
+                                    "type": "string"
+                                },
+                                "subtotal_tax": {
+                                    "type": "string"
+                                },
+                                "total": {
+                                    "type": "string"
+                                },
+                                "total_tax": {
+                                    "type": "string"
+                                },
+                                "taxes": {
+                                    "type": "array"
+                                },
+                                "meta_data": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "key": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "13": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "product_id": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "quantity": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "discount": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "discount",
+                                                                    "product_id",
+                                                                    "quantity"
+                                                                ]
+                                                            },
+                                                            "14": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "product_id": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "quantity": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "discount": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "discount",
+                                                                    "product_id",
+                                                                    "quantity"
+                                                                ]
+                                                            },
+                                                            "15": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "product_id": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "quantity": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "discount": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "discount",
+                                                                    "product_id",
+                                                                    "quantity"
+                                                                ]
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "13",
+                                                            "14",
+                                                            "15"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "key",
+                                            "value"
+                                        ]
+                                    }
+                                },
+                                "sku": {
+                                    "type": "string"
+                                },
+                                "price": {
+                                    "type": "integer"
+                                },
+                                "bundled_by": {
+                                    "type": [
+                                        "integer",
+                                        "string"
+                                    ]
+                                },
+                                "bundled_item_title": {
+                                    "type": "string"
+                                },
+                                "bundled_items": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "bundled_by",
+                                "bundled_item_title",
+                                "bundled_items",
+                                "id",
+                                "meta_data",
+                                "name",
+                                "price",
+                                "product_id",
+                                "quantity",
+                                "sku",
+                                "subtotal",
+                                "subtotal_tax",
+                                "tax_class",
+                                "taxes",
+                                "total",
+                                "total_tax",
+                                "variation_id"
+                            ]
+                        },
+                        "inclusion": "automatic"
+                    },
+                    "tax_lines": {
+                        "type": "array",
+                        "inclusion": "automatic"
+                    },
+                    "shipping_lines": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "method_title": {
+                                    "type": "string"
+                                },
+                                "method_id": {
+                                    "type": "string"
+                                },
+                                "instance_id": {
+                                    "type": "string"
+                                },
+                                "total": {
+                                    "type": "string"
+                                },
+                                "total_tax": {
+                                    "type": "string"
+                                },
+                                "taxes": {
+                                    "type": "array"
+                                },
+                                "meta_data": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "key": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "key",
+                                            "value"
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "instance_id",
+                                "meta_data",
+                                "method_id",
+                                "method_title",
+                                "taxes",
+                                "total",
+                                "total_tax"
+                            ]
+                        },
+                        "inclusion": "automatic"
+                    },
+                    "fee_lines": {
+                        "type": "array",
+                        "inclusion": "automatic"
+                    },
+                    "coupon_lines": {
+                        "type": "array",
+                        "inclusion": "automatic"
+                    },
+                    "refunds": {
+                        "type": "array",
+                        "inclusion": "automatic"
+                    },
+                    "currency_symbol": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "href"
+                                    ]
+                                }
+                            },
+                            "collection": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "href"
+                                    ]
+                                }
+                            }
+                        },
+                        "required": [
+                            "collection",
+                            "self"
+                        ],
+                        "inclusion": "automatic"
+                    }
+                },
+                "required": [
+                    "_links",
+                    "billing",
+                    "cart_hash",
+                    "cart_tax",
+                    "coupon_lines",
+                    "created_via",
+                    "currency",
+                    "currency_symbol",
+                    "customer_id",
+                    "customer_ip_address",
+                    "customer_note",
+                    "customer_user_agent",
+                    "date_completed",
+                    "date_completed_gmt",
+                    "date_created",
+                    "date_created_gmt",
+                    "date_modified",
+                    "date_modified_gmt",
+                    "date_paid",
+                    "date_paid_gmt",
+                    "discount_tax",
+                    "discount_total",
+                    "fee_lines",
+                    "id",
+                    "line_items",
+                    "meta_data",
+                    "number",
+                    "order_key",
+                    "parent_id",
+                    "payment_method",
+                    "payment_method_title",
+                    "prices_include_tax",
+                    "refunds",
+                    "shipping",
+                    "shipping_lines",
+                    "shipping_tax",
+                    "shipping_total",
+                    "status",
+                    "tax_lines",
+                    "total",
+                    "total_tax",
+                    "transaction_id",
+                    "version"
+                ]
+            }
+        },
+        {
+            "selected": true,
+            "stream": "customers",
+            "tap_stream_id": "customers",
+            "schema": {
+                "$schema": "http://json-schema.org/schema#",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "inclusion": "automatic"
+                    },
+                    "date_created": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_created_gmt": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_modified": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_modified_gmt": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "email": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "first_name": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "last_name": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "role": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "username": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "billing": {
+                        "type": "object",
+                        "properties": {
+                            "first_name": {
+                                "type": "string"
+                            },
+                            "last_name": {
+                                "type": "string"
+                            },
+                            "company": {
+                                "type": "string"
+                            },
+                            "address_1": {
+                                "type": "string"
+                            },
+                            "address_2": {
+                                "type": "string"
+                            },
+                            "city": {
+                                "type": "string"
+                            },
+                            "state": {
+                                "type": "string"
+                            },
+                            "postcode": {
+                                "type": "string"
+                            },
+                            "country": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            },
+                            "phone": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "address_1",
+                            "address_2",
+                            "city",
+                            "company",
+                            "country",
+                            "email",
+                            "first_name",
+                            "last_name",
+                            "phone",
+                            "postcode",
+                            "state"
+                        ],
+                        "inclusion": "automatic"
+                    },
+                    "shipping": {
+                        "type": "object",
+                        "properties": {
+                            "first_name": {
+                                "type": "string"
+                            },
+                            "last_name": {
+                                "type": "string"
+                            },
+                            "company": {
+                                "type": "string"
+                            },
+                            "address_1": {
+                                "type": "string"
+                            },
+                            "address_2": {
+                                "type": "string"
+                            },
+                            "city": {
+                                "type": "string"
+                            },
+                            "state": {
+                                "type": "string"
+                            },
+                            "postcode": {
+                                "type": "string"
+                            },
+                            "country": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "address_1",
+                            "address_2",
+                            "city",
+                            "company",
+                            "country",
+                            "first_name",
+                            "last_name",
+                            "postcode",
+                            "state"
+                        ],
+                        "inclusion": "automatic"
+                    },
+                    "is_paying_customer": {
+                        "type": "boolean",
+                        "inclusion": "automatic"
+                    },
+                    "avatar_url": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "meta_data": {
+                        "type": "array",
+                        "inclusion": "automatic"
+                    },
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "href"
+                                    ]
+                                }
+                            },
+                            "collection": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "href"
+                                    ]
+                                }
+                            }
+                        },
+                        "required": [
+                            "collection",
+                            "self"
+                        ],
+                        "inclusion": "automatic"
+                    }
+                },
+                "required": [
+                    "_links",
+                    "avatar_url",
+                    "billing",
+                    "date_created",
+                    "date_created_gmt",
+                    "date_modified",
+                    "date_modified_gmt",
+                    "email",
+                    "first_name",
+                    "id",
+                    "is_paying_customer",
+                    "last_name",
+                    "meta_data",
+                    "role",
+                    "shipping",
+                    "username"
+                ]
+            }
+        },
+        {
+            "selected": true,
+            "stream": "products",
+            "tap_stream_id": "products",
+            "schema": {
+                "$schema": "http://json-schema.org/schema#",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "inclusion": "automatic"
+                    },
+                    "name": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "slug": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "permalink": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_created": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_created_gmt": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_modified": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_modified_gmt": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "type": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "status": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "featured": {
+                        "type": "boolean",
+                        "inclusion": "automatic"
+                    },
+                    "catalog_visibility": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "description": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "short_description": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "sku": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "price": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "regular_price": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "sale_price": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "date_on_sale_from": {
+                        "type": "null",
+                        "inclusion": "automatic"
+                    },
+                    "date_on_sale_from_gmt": {
+                        "type": "null",
+                        "inclusion": "automatic"
+                    },
+                    "date_on_sale_to": {
+                        "type": "null",
+                        "inclusion": "automatic"
+                    },
+                    "date_on_sale_to_gmt": {
+                        "type": "null",
+                        "inclusion": "automatic"
+                    },
+                    "price_html": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "on_sale": {
+                        "type": "boolean",
+                        "inclusion": "automatic"
+                    },
+                    "purchasable": {
+                        "type": "boolean",
+                        "inclusion": "automatic"
+                    },
+                    "total_sales": {
+                        "type": "integer",
+                        "inclusion": "automatic"
+                    },
+                    "virtual": {
+                        "type": "boolean",
+                        "inclusion": "automatic"
+                    },
+                    "downloadable": {
+                        "type": "boolean",
+                        "inclusion": "automatic"
+                    },
+                    "downloads": {
+                        "type": "array",
+                        "inclusion": "automatic"
+                    },
+                    "download_limit": {
+                        "type": "integer",
+                        "inclusion": "automatic"
+                    },
+                    "download_expiry": {
+                        "type": "integer",
+                        "inclusion": "automatic"
+                    },
+                    "external_url": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "button_text": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "tax_status": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "tax_class": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "manage_stock": {
+                        "type": "boolean",
+                        "inclusion": "automatic"
+                    },
+                    "stock_quantity": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ],
+                        "inclusion": "automatic"
+                    },
+                    "stock_status": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "backorders": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "backorders_allowed": {
+                        "type": "boolean",
+                        "inclusion": "automatic"
+                    },
+                    "backordered": {
+                        "type": "boolean",
+                        "inclusion": "automatic"
+                    },
+                    "sold_individually": {
+                        "type": "boolean",
+                        "inclusion": "automatic"
+                    },
+                    "weight": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "dimensions": {
+                        "type": "object",
+                        "properties": {
+                            "length": {
+                                "type": "string"
+                            },
+                            "width": {
+                                "type": "string"
+                            },
+                            "height": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "height",
+                            "length",
+                            "width"
+                        ],
+                        "inclusion": "automatic"
+                    },
+                    "shipping_required": {
+                        "type": "boolean",
+                        "inclusion": "automatic"
+                    },
+                    "shipping_taxable": {
+                        "type": "boolean",
+                        "inclusion": "automatic"
+                    },
+                    "shipping_class": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "shipping_class_id": {
+                        "type": "integer",
+                        "inclusion": "automatic"
+                    },
+                    "reviews_allowed": {
+                        "type": "boolean",
+                        "inclusion": "automatic"
+                    },
+                    "average_rating": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "rating_count": {
+                        "type": "integer",
+                        "inclusion": "automatic"
+                    },
+                    "related_ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "inclusion": "automatic"
+                    },
+                    "upsell_ids": {
+                        "type": "array",
+                        "inclusion": "automatic"
+                    },
+                    "cross_sell_ids": {
+                        "type": "array",
+                        "inclusion": "automatic"
+                    },
+                    "parent_id": {
+                        "type": "integer",
+                        "inclusion": "automatic"
+                    },
+                    "purchase_note": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "categories": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "slug": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "name",
+                                "slug"
+                            ]
+                        },
+                        "inclusion": "automatic"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "slug": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "name",
+                                "slug"
+                            ]
+                        },
+                        "inclusion": "automatic"
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "date_created": {
+                                    "type": "string"
+                                },
+                                "date_created_gmt": {
+                                    "type": "string"
+                                },
+                                "date_modified": {
+                                    "type": "string"
+                                },
+                                "date_modified_gmt": {
+                                    "type": "string"
+                                },
+                                "src": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "alt": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "alt",
+                                "date_created",
+                                "date_created_gmt",
+                                "date_modified",
+                                "date_modified_gmt",
+                                "id",
+                                "name",
+                                "src"
+                            ]
+                        },
+                        "inclusion": "automatic"
+                    },
+                    "attributes": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "position": {
+                                    "type": "integer"
+                                },
+                                "visible": {
+                                    "type": "boolean"
+                                },
+                                "variation": {
+                                    "type": "boolean"
+                                },
+                                "options": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "name",
+                                "options",
+                                "position",
+                                "variation",
+                                "visible"
+                            ]
+                        },
+                        "inclusion": "automatic"
+                    },
+                    "default_attributes": {
+                        "type": "array",
+                        "inclusion": "automatic"
+                    },
+                    "variations": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "inclusion": "automatic"
+                    },
+                    "grouped_products": {
+                        "type": "array",
+                        "inclusion": "automatic"
+                    },
+                    "menu_order": {
+                        "type": "integer",
+                        "inclusion": "automatic"
+                    },
+                    "meta_data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "key": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "anyOf": [
+                                        {
+                                            "type": [
+                                                "array",
+                                                "string"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "geot_include_mode": {
+                                                    "type": "string"
+                                                },
+                                                "cities": {
+                                                    "type": "string"
+                                                },
+                                                "states": {
+                                                    "type": "string"
+                                                },
+                                                "zipcodes": {
+                                                    "type": "string"
+                                                },
+                                                "radius_km": {
+                                                    "type": "string"
+                                                },
+                                                "radius_lat": {
+                                                    "type": "string"
+                                                },
+                                                "radius_lng": {
+                                                    "type": "string"
+                                                },
+                                                "forbidden_text": {
+                                                    "type": "string"
+                                                },
+                                                "archive_single_attribute": {
+                                                    "type": "string"
+                                                },
+                                                "pa_color": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "data": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "black": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "image": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "secondary_color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_text": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_image": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "color",
+                                                                        "image",
+                                                                        "secondary_color",
+                                                                        "tooltip",
+                                                                        "tooltip_image",
+                                                                        "tooltip_text",
+                                                                        "type"
+                                                                    ]
+                                                                },
+                                                                "white": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "image": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "secondary_color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_text": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_image": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "color",
+                                                                        "image",
+                                                                        "secondary_color",
+                                                                        "tooltip",
+                                                                        "tooltip_image",
+                                                                        "tooltip_text",
+                                                                        "type"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "black",
+                                                                "white"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "data",
+                                                        "type"
+                                                    ]
+                                                },
+                                                "pa_gender": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "data": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "mens": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "image": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "secondary_color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_text": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_image": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "color",
+                                                                        "image",
+                                                                        "secondary_color",
+                                                                        "tooltip",
+                                                                        "tooltip_image",
+                                                                        "tooltip_text",
+                                                                        "type"
+                                                                    ]
+                                                                },
+                                                                "womens": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "image": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "secondary_color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_text": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_image": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "color",
+                                                                        "image",
+                                                                        "secondary_color",
+                                                                        "tooltip",
+                                                                        "tooltip_image",
+                                                                        "tooltip_text",
+                                                                        "type"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "mens",
+                                                                "womens"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "data",
+                                                        "type"
+                                                    ]
+                                                },
+                                                "pa_size": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "data": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "small": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "image": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "secondary_color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_text": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_image": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "color",
+                                                                        "image",
+                                                                        "secondary_color",
+                                                                        "tooltip",
+                                                                        "tooltip_image",
+                                                                        "tooltip_text",
+                                                                        "type"
+                                                                    ]
+                                                                },
+                                                                "medium": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "image": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "secondary_color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_text": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_image": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "color",
+                                                                        "image",
+                                                                        "secondary_color",
+                                                                        "tooltip",
+                                                                        "tooltip_image",
+                                                                        "tooltip_text",
+                                                                        "type"
+                                                                    ]
+                                                                },
+                                                                "large": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "image": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "secondary_color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_text": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_image": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "color",
+                                                                        "image",
+                                                                        "secondary_color",
+                                                                        "tooltip",
+                                                                        "tooltip_image",
+                                                                        "tooltip_text",
+                                                                        "type"
+                                                                    ]
+                                                                },
+                                                                "x-large": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "image": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "secondary_color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_text": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "tooltip_image": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "color",
+                                                                        "image",
+                                                                        "secondary_color",
+                                                                        "tooltip",
+                                                                        "tooltip_image",
+                                                                        "tooltip_text",
+                                                                        "type"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "large",
+                                                                "medium",
+                                                                "small",
+                                                                "x-large"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "data",
+                                                        "type"
+                                                    ]
+                                                },
+                                                "id_badge": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "key",
+                                "value"
+                            ]
+                        },
+                        "inclusion": "automatic"
+                    },
+                    "bundle_layout": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "bundled_by": {
+                        "type": "array",
+                        "inclusion": "automatic"
+                    },
+                    "bundled_items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "bundled_item_id": {
+                                    "type": "integer"
+                                },
+                                "product_id": {
+                                    "type": "integer"
+                                },
+                                "menu_order": {
+                                    "type": "integer"
+                                },
+                                "quantity_min": {
+                                    "type": "integer"
+                                },
+                                "quantity_max": {
+                                    "type": "integer"
+                                },
+                                "quantity_default": {
+                                    "type": "integer"
+                                },
+                                "priced_individually": {
+                                    "type": "boolean"
+                                },
+                                "shipped_individually": {
+                                    "type": "boolean"
+                                },
+                                "override_title": {
+                                    "type": "boolean"
+                                },
+                                "title": {
+                                    "type": "string"
+                                },
+                                "override_description": {
+                                    "type": "boolean"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "optional": {
+                                    "type": "boolean"
+                                },
+                                "hide_thumbnail": {
+                                    "type": "boolean"
+                                },
+                                "discount": {
+                                    "type": "string"
+                                },
+                                "override_variations": {
+                                    "type": "boolean"
+                                },
+                                "allowed_variations": {
+                                    "type": "array"
+                                },
+                                "override_default_variation_attributes": {
+                                    "type": "boolean"
+                                },
+                                "default_variation_attributes": {
+                                    "type": "array"
+                                },
+                                "single_product_visibility": {
+                                    "type": "string"
+                                },
+                                "cart_visibility": {
+                                    "type": "string"
+                                },
+                                "order_visibility": {
+                                    "type": "string"
+                                },
+                                "single_product_price_visibility": {
+                                    "type": "string"
+                                },
+                                "cart_price_visibility": {
+                                    "type": "string"
+                                },
+                                "order_price_visibility": {
+                                    "type": "string"
+                                },
+                                "stock_status": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "allowed_variations",
+                                "bundled_item_id",
+                                "cart_price_visibility",
+                                "cart_visibility",
+                                "default_variation_attributes",
+                                "description",
+                                "discount",
+                                "hide_thumbnail",
+                                "menu_order",
+                                "optional",
+                                "order_price_visibility",
+                                "order_visibility",
+                                "override_default_variation_attributes",
+                                "override_description",
+                                "override_title",
+                                "override_variations",
+                                "priced_individually",
+                                "product_id",
+                                "quantity_default",
+                                "quantity_max",
+                                "quantity_min",
+                                "shipped_individually",
+                                "single_product_price_visibility",
+                                "single_product_visibility",
+                                "stock_status",
+                                "title"
+                            ]
+                        },
+                        "inclusion": "automatic"
+                    },
+                    "yoast_head": {
+                        "type": "string",
+                        "inclusion": "automatic"
+                    },
+                    "gpf_data": {
+                        "type": "object",
+                        "properties": {
+                            "description": {
+                                "type": "null"
+                            },
+                            "availability": {
+                                "type": "null"
+                            },
+                            "is_bundle": {
+                                "type": "null"
+                            },
+                            "availability_date": {
+                                "type": "null"
+                            },
+                            "condition": {
+                                "type": "null"
+                            },
+                            "brand": {
+                                "type": "null"
+                            },
+                            "mpn": {
+                                "type": "null"
+                            },
+                            "product_type": {
+                                "type": "null"
+                            },
+                            "google_product_category": {
+                                "type": "null"
+                            },
+                            "tax_category": {
+                                "type": "null"
+                            },
+                            "gtin": {
+                                "type": "null"
+                            },
+                            "gender": {
+                                "type": "null"
+                            },
+                            "age_group": {
+                                "type": "null"
+                            },
+                            "color": {
+                                "type": "null"
+                            },
+                            "size": {
+                                "type": "null"
+                            },
+                            "size_type": {
+                                "type": "null"
+                            },
+                            "size_system": {
+                                "type": "null"
+                            },
+                            "unit_pricing_measure": {
+                                "type": "null"
+                            },
+                            "unit_pricing_base_measure": {
+                                "type": "null"
+                            },
+                            "multipack": {
+                                "type": "null"
+                            },
+                            "installment": {
+                                "type": "null"
+                            },
+                            "material": {
+                                "type": "null"
+                            },
+                            "pattern": {
+                                "type": "null"
+                            },
+                            "adult": {
+                                "type": "null"
+                            },
+                            "identifier_exists": {
+                                "type": "null"
+                            },
+                            "adwords_grouping": {
+                                "type": "null"
+                            },
+                            "adwords_labels": {
+                                "type": "null"
+                            },
+                            "bing_category": {
+                                "type": "null"
+                            },
+                            "delivery_label": {
+                                "type": "null"
+                            },
+                            "transit_time_label": {
+                                "type": "null"
+                            },
+                            "min_handling_time": {
+                                "type": "null"
+                            },
+                            "max_handling_time": {
+                                "type": "null"
+                            },
+                            "energy_efficiency_class": {
+                                "type": "null"
+                            },
+                            "min_energy_efficiency_class": {
+                                "type": "null"
+                            },
+                            "max_energy_efficiency_class": {
+                                "type": "null"
+                            },
+                            "energy_label_image_link": {
+                                "type": "null"
+                            },
+                            "cost_of_goods_sold": {
+                                "type": "null"
+                            },
+                            "included_destination": {
+                                "type": "null"
+                            },
+                            "excluded_destination": {
+                                "type": "null"
+                            },
+                            "consumer_notice": {
+                                "type": "null"
+                            },
+                            "product_highlight": {
+                                "type": "null"
+                            },
+                            "product_detail": {
+                                "type": "null"
+                            },
+                            "consumer_datasheet": {
+                                "type": "null"
+                            },
+                            "product_fee": {
+                                "type": "null"
+                            },
+                            "sell_on_google_quantity": {
+                                "type": "null"
+                            },
+                            "purchase_quantity_limit": {
+                                "type": "null"
+                            },
+                            "google_funded_promotion_eligibility": {
+                                "type": "null"
+                            },
+                            "return_address_label": {
+                                "type": "null"
+                            },
+                            "return_policy_label": {
+                                "type": "null"
+                            },
+                            "pickup_method": {
+                                "type": "null"
+                            },
+                            "pickup_sla": {
+                                "type": "null"
+                            },
+                            "custom_label_0": {
+                                "type": "null"
+                            },
+                            "custom_label_1": {
+                                "type": "null"
+                            },
+                            "custom_label_2": {
+                                "type": "null"
+                            },
+                            "custom_label_3": {
+                                "type": "null"
+                            },
+                            "custom_label_4": {
+                                "type": "null"
+                            },
+                            "promotion_id": {
+                                "type": "null"
+                            },
+                            "shippingprice": {
+                                "type": "null"
+                            },
+                            "shippingcountryprice": {
+                                "type": "null"
+                            },
+                            "shippingcountryserviceprice": {
+                                "type": "null"
+                            },
+                            "exclude_product": {
+                                "type": "null"
+                            }
+                        },
+                        "required": [
+                            "adult",
+                            "adwords_grouping",
+                            "adwords_labels",
+                            "age_group",
+                            "availability",
+                            "availability_date",
+                            "bing_category",
+                            "brand",
+                            "color",
+                            "condition",
+                            "consumer_datasheet",
+                            "consumer_notice",
+                            "cost_of_goods_sold",
+                            "custom_label_0",
+                            "custom_label_1",
+                            "custom_label_2",
+                            "custom_label_3",
+                            "custom_label_4",
+                            "delivery_label",
+                            "description",
+                            "energy_efficiency_class",
+                            "energy_label_image_link",
+                            "exclude_product",
+                            "excluded_destination",
+                            "gender",
+                            "google_funded_promotion_eligibility",
+                            "google_product_category",
+                            "gtin",
+                            "identifier_exists",
+                            "included_destination",
+                            "installment",
+                            "is_bundle",
+                            "material",
+                            "max_energy_efficiency_class",
+                            "max_handling_time",
+                            "min_energy_efficiency_class",
+                            "min_handling_time",
+                            "mpn",
+                            "multipack",
+                            "pattern",
+                            "pickup_method",
+                            "pickup_sla",
+                            "product_detail",
+                            "product_fee",
+                            "product_highlight",
+                            "product_type",
+                            "promotion_id",
+                            "purchase_quantity_limit",
+                            "return_address_label",
+                            "return_policy_label",
+                            "sell_on_google_quantity",
+                            "shippingcountryprice",
+                            "shippingcountryserviceprice",
+                            "shippingprice",
+                            "size",
+                            "size_system",
+                            "size_type",
+                            "tax_category",
+                            "transit_time_label",
+                            "unit_pricing_base_measure",
+                            "unit_pricing_measure"
+                        ],
+                        "inclusion": "automatic"
+                    },
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "href"
+                                    ]
+                                }
+                            },
+                            "collection": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "href"
+                                    ]
+                                }
+                            }
+                        },
+                        "required": [
+                            "collection",
+                            "self"
+                        ],
+                        "inclusion": "automatic"
+                    }
+                },
+                "required": [
+                    "_links",
+                    "attributes",
+                    "average_rating",
+                    "backordered",
+                    "backorders",
+                    "backorders_allowed",
+                    "bundle_layout",
+                    "bundled_by",
+                    "bundled_items",
+                    "button_text",
+                    "catalog_visibility",
+                    "categories",
+                    "cross_sell_ids",
+                    "date_created",
+                    "date_created_gmt",
+                    "date_modified",
+                    "date_modified_gmt",
+                    "date_on_sale_from",
+                    "date_on_sale_from_gmt",
+                    "date_on_sale_to",
+                    "date_on_sale_to_gmt",
+                    "default_attributes",
+                    "description",
+                    "dimensions",
+                    "download_expiry",
+                    "download_limit",
+                    "downloadable",
+                    "downloads",
+                    "external_url",
+                    "featured",
+                    "gpf_data",
+                    "grouped_products",
+                    "id",
+                    "images",
+                    "manage_stock",
+                    "menu_order",
+                    "meta_data",
+                    "name",
+                    "on_sale",
+                    "parent_id",
+                    "permalink",
+                    "price",
+                    "price_html",
+                    "purchasable",
+                    "purchase_note",
+                    "rating_count",
+                    "regular_price",
+                    "related_ids",
+                    "reviews_allowed",
+                    "sale_price",
+                    "shipping_class",
+                    "shipping_class_id",
+                    "shipping_required",
+                    "shipping_taxable",
+                    "short_description",
+                    "sku",
+                    "slug",
+                    "sold_individually",
+                    "status",
+                    "stock_quantity",
+                    "stock_status",
+                    "tags",
+                    "tax_class",
+                    "tax_status",
+                    "total_sales",
+                    "type",
+                    "upsell_ids",
+                    "variations",
+                    "virtual",
+                    "weight",
+                    "yoast_head"
+                ]
+            }
+        }
+    ]
+}
